@@ -1,3 +1,5 @@
+let mapleader = " "
+
 " vim-plug has to be downloaded to ~/.local/share/nvim/site/autoload/plug.vim
 " https://github.com/junegunn/vim-plug
 call plug#begin(stdpath('data') . 'plugged')
@@ -10,6 +12,9 @@ Plug 'jiangmiao/auto-pairs'
 Plug 'junegunn/rainbow_parentheses.vim'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-unimpaired'
+Plug 'tpope/vim-repeat'
+Plug 'machakann/vim-highlightedyank'
 Plug 'sheerun/vim-polyglot'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'scrooloose/nerdtree'
@@ -269,6 +274,13 @@ augroup rainbow_lisp
     autocmd FileType lisp,clojure,scheme,typescript,javascript,vue,python RainbowParentheses
 augroup END
 
+" spellchecking
+augroup setSpelling
+  autocmd!
+  autocmd FileType gitcommit setlocal spell spelllang=en_us
+  autocmd FileType markdown setlocal spell spelllang=en_us
+augroup END
+
 " miscellaneous
 set mouse=a
 set ignorecase
@@ -277,3 +289,7 @@ set number
 set softtabstop=4
 set shiftwidth=4
 set expandtab
+" handle frequent typos
+command! Q :q
+command! W :w
+command! Wq :wq
