@@ -257,6 +257,15 @@ command! -bang -nargs=* Rg call fzf#vim#grep("rg --column --line-number --no-hea
 " airline
 let g:airline_powerline_fonts = 1
 
+" rainbow_parentheses
+let g:rainbow#max_level = 16
+let g:rainbow#pairs = [['(', ')'], ['[', ']']]
+" Activation based on file type
+augroup rainbow_lisp
+    autocmd!
+    autocmd FileType lisp,clojure,scheme,typescript,javascript,vue,python RainbowParentheses
+augroup END
+
 " miscellaneous
 set mouse=a
 set ignorecase
