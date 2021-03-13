@@ -21,6 +21,7 @@ Plug 'scrooloose/nerdtree'
 Plug 'ryanoasis/vim-devicons'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
+Plug 'editorconfig/editorconfig-vim'
 
 call plug#end()
 
@@ -281,14 +282,22 @@ augroup setSpelling
   autocmd FileType markdown setlocal spell spelllang=en_us
 augroup END
 
+" fugitive
+nnoremap <Leader>gs :Gstatus<CR><C-w>_
+
+" editorconfig-vim
+let g:EditorConfig_exclude_patterns = ['fugitive://.*', 'scp://.*']
+
 " miscellaneous
 set mouse=a
 set ignorecase
 set smartcase
 set number
-set softtabstop=4
-set shiftwidth=4
+set softtabstop=2
+set shiftwidth=2
 set expandtab
+set wrap
+
 " handle frequent typos
 command! Q :q
 command! W :w
