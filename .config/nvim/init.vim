@@ -257,8 +257,8 @@ let g:WebDevIconsUnicodeDecorateFolderNodes = 1
 let g:webdevicons_conceal_nerdtree_brackets = 0
 
 " FZF
-"nnoremap <silent> <C-p> :Files<CR>
-nnoremap <silent> <C-p> :execute system('git rev-parse --is-inside-work-tree') =~ 'true' ? 'GFiles' : 'Files'<CR>
+" nnoremap <silent> <C-p> :Files<CR>
+nnoremap <silent> <C-p> :execute system('git rev-parse --is-inside-work-tree') =~ 'true' ? 'GFiles --cached --others --exclude-standard' : 'Files'<CR>
 nnoremap <silent> <C-k> :Rg<CR>
 " make Rg ignore filenames
 command! -bang -nargs=* Rg call fzf#vim#grep("rg --column --line-number --no-heading --color=always --smart-case ".shellescape(<q-args>), 1, {'options': '--delimiter : --nth 4..'}, <bang>0)
