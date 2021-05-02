@@ -279,7 +279,7 @@ augroup setSpelling
 augroup END
 
 " fugitive
-nnoremap <Leader>gs :Gstatus<CR><C-w>_
+nnoremap <Leader>gs :Git<CR><C-w>_
 
 " editorconfig-vim
 let g:EditorConfig_exclude_patterns = ['fugitive://.*', 'scp://.*']
