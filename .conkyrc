@@ -1,0 +1,88 @@
+conky.config = {
+    alignment = 'top_right',
+    background = true,
+    border_width = 1,
+    cpu_avg_samples = 2,
+    default_outline_color = 'white',
+    default_shade_color = 'white',
+    default_color = '#ECEAE4',
+    color1 = '#1EB5FF',
+    color2 = '#30DDFB',
+    color3 = '#0090ff',
+    color4 = '#98FF76',
+    color5 = 'green',
+    double_buffer = true,
+    draw_borders = false,
+    draw_graph_borders = true,
+    draw_outline = false,
+    draw_shades = false,
+    extra_newline = false,
+    font = 'UbuntuMono NF:size=16',
+    gap_x = 30,
+    gap_y = 30,
+    minimum_height = 250,
+    minimum_width = 220,
+    net_avg_samples = 2,
+    no_buffers = true,
+    out_to_console = false,
+    out_to_ncurses = false,
+    out_to_stderr = false,
+    out_to_x = true,
+    own_window = true,
+    own_window_class = 'Conky',
+    own_window_transparent = false,
+    own_window_argb_visual = true,
+    own_window_argb_value = 145,
+    own_window_type = 'desktop',
+    own_window_hints ='undecorated,sticky,skip_taskbar,skip_pager,below',
+    show_graph_range = false,
+    show_graph_scale = false,
+    stippled_borders = 0,
+    update_interval = 1.0,
+    uppercase = false,
+    use_spacer = 'none',
+    use_xft = true,
+}
+
+conky.text = [[
+${color1}OS ${color}${execi 86400 cat `ls -atr /etc/*-release | tail -2` | grep "PRETTY_NAME" | cut -d= -f2 |  sed 's/"//g'}
+${color1}Kernel ${color}${kernel} on ${machine}
+${color1}Uptime ${color}${uptime_short}
+${color4}${hr}
+${color1}Intel® Core™ i5-11400 ${alignr}${color}${freq_g}GHz
+${color1}CPU  1  ${color}${cpu cpu1}%   ${goto 160}${cpubar cpu1 4}
+${color1}CPU  2  ${color}${cpu cpu2}%   ${goto 160}${cpubar cpu2 4}
+${color1}CPU  3  ${color}${cpu cpu3}%   ${goto 160}${cpubar cpu3 4}
+${color1}CPU  4  ${color}${cpu cpu4}%   ${goto 160}${cpubar cpu4 4}
+${color1}CPU  5  ${color}${cpu cpu5}%   ${goto 160}${cpubar cpu5 4}
+${color1}CPU  6  ${color}${cpu cpu6}%   ${goto 160}${cpubar cpu6 4}
+${color1}CPU  7  ${color}${cpu cpu7}%   ${goto 160}${cpubar cpu7 4}
+${color1}CPU  8  ${color}${cpu cpu8}%   ${goto 160}${cpubar cpu8 4}
+${color1}CPU  9  ${color}${cpu cpu9}%   ${goto 160}${cpubar cpu9 4}
+${color1}CPU 10  ${color}${cpu cpu10}%  ${goto 160}${cpubar cpu10 4}
+${color1}CPU 11  ${color}${cpu cpu11}%  ${goto 160}${cpubar cpu11 4}
+${color1}CPU 12  ${color}${cpu cpu12}%  ${goto 160}${cpubar cpu12 4}
+${color1}Load ${color}${loadavg} ${alignr}${color1}Temp ${color}${exec sensors | grep 'Package id' | awk '{print $4}'}
+${color4}${hr}
+${color1}ram ${goto 64}${color}${mem}${goto 150}/ ${memmax} ${goto 300}${memperc}% ${goto 350}${membar 4}
+${color1}swap ${goto 64}${color}${swap}${goto 150}/ ${swapmax} ${goto 300}${swapperc}% ${goto 350}${swapbar 4}
+${color4}${hr}
+${color1}Name ${goto 210}PID ${goto 290}CPU% ${goto 380}MEM%
+${color1}${stippled_hr}${color}
+${top name 1} ${goto 210}${top pid 1} ${goto 290}${top cpu 1}% ${goto 380}${top mem 1}%
+${top name 2} ${goto 210}${top pid 2} ${goto 290}${top cpu 2}% ${goto 380}${top mem 2}%
+${top name 3} ${goto 210}${top pid 3} ${goto 290}${top cpu 3}% ${goto 380}${top mem 3}%
+${top name 4} ${goto 210}${top pid 4} ${goto 290}${top cpu 4}% ${goto 380}${top mem 4}%
+${top name 5} ${goto 210}${top pid 5} ${goto 290}${top cpu 5}% ${goto 380}${top mem 5}%
+${top name 6} ${goto 210}${top pid 6} ${goto 290}${top cpu 6}% ${goto 380}${top mem 6}%
+${top name 7} ${goto 210}${top pid 7} ${goto 290}${top cpu 7}% ${goto 380}${top mem 7}%
+${top name 8} ${goto 210}${top pid 8} ${goto 290}${top cpu 8}% ${goto 380}${top mem 8}%
+${top name 9} ${goto 210}${top pid 9} ${goto 290}${top cpu 9}% ${goto 380}${top mem 9}%
+${top name 10} ${goto 210}${top pid 10} ${goto 290}${top cpu 10}% ${goto 380}${top mem 10}%
+${color1}Processes ${color}${processes} ${alignr}${color1}Running ${color}${running_processes}
+${color4}${hr}
+${color1}/ ${goto 135}${color}${fs_used /} ${goto 240}/ ${fs_size /} ${goto 360}${fs_used_perc /}% ${fs_bar 4 /}
+${color1}/home ${goto 135}${color}${fs_used /home} ${goto 240}/ ${fs_size /home} ${goto 360}${fs_used_perc /home}% ${fs_bar 4 /home}
+${color1}/mnt/shared ${goto 135}${color}${fs_used /mnt/shared} ${goto 240}/ ${fs_size /mnt/shared} ${goto 360}${fs_used_perc /mnt/shared}% ${fs_bar 4 /mnt/shared}
+
+]]
