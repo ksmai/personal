@@ -293,6 +293,7 @@ set softtabstop=2
 set shiftwidth=2
 set expandtab
 set wrap
+set dir=/tmp
 
 " handle frequent typos
 command! Q :q
