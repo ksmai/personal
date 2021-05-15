@@ -289,9 +289,11 @@ set mouse=a
 set ignorecase
 set smartcase
 set number
-set softtabstop=2
-set shiftwidth=2
+set tabstop=4
+set softtabstop=4
+set shiftwidth=4
 set expandtab
+set smarttab
 set wrap
 set dir=/tmp
 
